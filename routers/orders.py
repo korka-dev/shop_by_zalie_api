@@ -11,7 +11,7 @@ import os
 router = APIRouter()
 
 BREVO_API_KEY = os.getenv("BREVO_API_KEY")
-OWNER_EMAIL = os.getenv("OWNER_EMAIL", "test@gmail.com")
+OWNER_EMAIL = os.getenv("OWNER_EMAIL", "thiawadamrosalie@gmail.com")
 
 @router.get("/", response_model=List[OrderResponse])
 def get_orders(db: Session = Depends(get_db)):
