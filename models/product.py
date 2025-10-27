@@ -1,0 +1,18 @@
+from datetime import datetime, timezone
+from sqlalchemy import Column, Integer, String, Float, Text, JSON, DateTime
+from sqlalchemy.sql import func
+from database import Base
+
+class Product(Base):
+    __tablename__ = "products"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(255), nullable=False)
+    description = Column(Text)
+    price = Column(Float, nullable=False)
+    category = Column(String(100))
+    stock = Column(Integer, default=0)
+    images = Column(JSON)
+    sizes = Column(JSON, default=[])
+    colors = Column(JSON, default=[])
+    created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
